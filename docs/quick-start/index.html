@@ -71,9 +71,9 @@ kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 containerdConfigPatches: # Enab
 kind: ResourceSlice
 metadata:
   creationTimestamp: &#34;2024-12-15T23:41:51Z&#34;
-  generateName: gke-aojea-dra-multi-nic-985b8c20-jg5l-dranet.gke.io-
+  generateName: gke-aojea-dra-multi-nic-985b8c20-jg5l-dra.net-
   generation: 1
-  name: gke-aojea-dra-multi-nic-985b8c20-jg5l-dranet.gke.io-8nq9c
+  name: gke-aojea-dra-multi-nic-985b8c20-jg5l-dra.net-8nq9c
   ownerReferences:
   - apiVersion: v1
     controller: true
@@ -215,12 +215,12 @@ spec:
 </span></span><span style=display:flex><span>spec:
 </span></span><span style=display:flex><span>  selectors:
 </span></span><span style=display:flex><span>    - cel:
-</span></span><span style=display:flex><span>        expression: device.driver == &#34;dranet.gke.io&#34;
+</span></span><span style=display:flex><span>        expression: device.driver == &#34;dra.net&#34;
 </span></span><span style=display:flex><span>    - cel:
-</span></span><span style=display:flex><span>        expression: has(device.attributes[&#34;dranet.gke.io&#34;].cloud_network) 
+</span></span><span style=display:flex><span>        expression: has(device.attributes[&#34;dra.net&#34;].cloud_network) 
 </span></span><span style=display:flex><span>  config:
 </span></span><span style=display:flex><span>  - opaque:
-</span></span><span style=display:flex><span>      driver: dranet.gke.io
+</span></span><span style=display:flex><span>      driver: dra.net
 </span></span><span style=display:flex><span>      parameters:
 </span></span><span style=display:flex><span>        nccl: <span style=color:#a31515>&#34;true&#34;</span>
 </span></span></code></pre></div><p>Now you can create a <code>ResourceClaim</code> that connects to a specific network, in this case <code>projects/961828715260/networks/aojea-dra-net-3</code> and reference that claim in a <code>Pod</code>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>apiVersion: resource.k8s.io/v1beta1
@@ -234,7 +234,7 @@ spec:
 </span></span><span style=display:flex><span>      deviceClassName: dranet-cloud
 </span></span><span style=display:flex><span>      selectors:
 </span></span><span style=display:flex><span>        - cel:
-</span></span><span style=display:flex><span>            expression: device.attributes[&#34;dranet.gke.io&#34;].cloud_network == &#34;projects/961828715260/networks/aojea-dra-net-3&#34;
+</span></span><span style=display:flex><span>            expression: device.attributes[&#34;dra.net&#34;].cloud_network == &#34;projects/961828715260/networks/aojea-dra-net-3&#34;
 </span></span><span style=display:flex><span>---
 </span></span><span style=display:flex><span>apiVersion: v1
 </span></span><span style=display:flex><span>kind: Pod
