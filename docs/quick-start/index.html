@@ -1,73 +1,45 @@
 <!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><link rel="shortcut icon" href=/dranet/favicons/favicon.ico><link rel=apple-touch-icon href=/dranet/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/dranet/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/dranet/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/dranet/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/dranet/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/dranet/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/dranet/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/dranet/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/dranet/favicons/android-192x192.png sizes=192x192><title>Quick Start | dranet</title>
-<meta name=description content='DRANET depends on the Kubernetes feature Dynamic Resource Allocation (DRA), that is beta (disabled by default in v1.32).
+<meta name=description content="DraNet depends on the Kubernetes feature Dynamic Resource Allocation (DRA), that is beta (disabled by default in Kubernetes ∂v1.32).
 In order to enable DRA you need to enable both the feature gates and the API groups.
 Kubernetes cluster with DRA KIND Install KIND.
 Create a cluster using the following configuration.
-kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 containerdConfigPatches: # Enable NRI plugins - |- [plugins."io.containerd.nri.v1.nri"] disable = false nodes: - role: control-plane image: kindest/node:v1.32.0 - role: worker image: kindest/node:v1.'><meta property="og:url" content="https://google.github.io/dranet/docs/quick-start/"><meta property="og:site_name" content="dranet"><meta property="og:title" content="Quick Start"><meta property="og:description" content='DRANET depends on the Kubernetes feature Dynamic Resource Allocation (DRA), that is beta (disabled by default in v1.32).
+kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 nodes: - role: control-plane image: kindest/node:v1.33.1 - role: worker image: kindest/node:v1.33.1 - role: worker image: kindest/node:v1.33.1 featureGates: # Enable the corresponding DRA feature gates DynamicResourceAllocation: true DRAResourceClaimDeviceStatus: true runtimeConfig: api/beta : true kind create cluster --config kind."><meta property="og:url" content="https://google.github.io/dranet/docs/quick-start/"><meta property="og:site_name" content="dranet"><meta property="og:title" content="Quick Start"><meta property="og:description" content="DraNet depends on the Kubernetes feature Dynamic Resource Allocation (DRA), that is beta (disabled by default in Kubernetes ∂v1.32).
 In order to enable DRA you need to enable both the feature gates and the API groups.
 Kubernetes cluster with DRA KIND Install KIND.
 Create a cluster using the following configuration.
-kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 containerdConfigPatches: # Enable NRI plugins - |- [plugins."io.containerd.nri.v1.nri"] disable = false nodes: - role: control-plane image: kindest/node:v1.32.0 - role: worker image: kindest/node:v1.'><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-12-17T14:47:05+00:00"><meta property="article:modified_time" content="2024-12-17T14:47:05+00:00"><meta itemprop=name content="Quick Start"><meta itemprop=description content='DRANET depends on the Kubernetes feature Dynamic Resource Allocation (DRA), that is beta (disabled by default in v1.32).
+kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 nodes: - role: control-plane image: kindest/node:v1.33.1 - role: worker image: kindest/node:v1.33.1 - role: worker image: kindest/node:v1.33.1 featureGates: # Enable the corresponding DRA feature gates DynamicResourceAllocation: true DRAResourceClaimDeviceStatus: true runtimeConfig: api/beta : true kind create cluster --config kind."><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-12-17T14:47:05+00:00"><meta property="article:modified_time" content="2024-12-17T14:47:05+00:00"><meta itemprop=name content="Quick Start"><meta itemprop=description content="DraNet depends on the Kubernetes feature Dynamic Resource Allocation (DRA), that is beta (disabled by default in Kubernetes ∂v1.32).
 In order to enable DRA you need to enable both the feature gates and the API groups.
 Kubernetes cluster with DRA KIND Install KIND.
 Create a cluster using the following configuration.
-kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 containerdConfigPatches: # Enable NRI plugins - |- [plugins."io.containerd.nri.v1.nri"] disable = false nodes: - role: control-plane image: kindest/node:v1.32.0 - role: worker image: kindest/node:v1.'><meta itemprop=datePublished content="2024-12-17T14:47:05+00:00"><meta itemprop=dateModified content="2024-12-17T14:47:05+00:00"><meta itemprop=wordCount content="812"><meta name=twitter:card content="summary"><meta name=twitter:title content="Quick Start"><meta name=twitter:description content='DRANET depends on the Kubernetes feature Dynamic Resource Allocation (DRA), that is beta (disabled by default in v1.32).
+kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 nodes: - role: control-plane image: kindest/node:v1.33.1 - role: worker image: kindest/node:v1.33.1 - role: worker image: kindest/node:v1.33.1 featureGates: # Enable the corresponding DRA feature gates DynamicResourceAllocation: true DRAResourceClaimDeviceStatus: true runtimeConfig: api/beta : true kind create cluster --config kind."><meta itemprop=datePublished content="2024-12-17T14:47:05+00:00"><meta itemprop=dateModified content="2024-12-17T14:47:05+00:00"><meta itemprop=wordCount content="570"><meta name=twitter:card content="summary"><meta name=twitter:title content="Quick Start"><meta name=twitter:description content="DraNet depends on the Kubernetes feature Dynamic Resource Allocation (DRA), that is beta (disabled by default in Kubernetes ∂v1.32).
 In order to enable DRA you need to enable both the feature gates and the API groups.
 Kubernetes cluster with DRA KIND Install KIND.
 Create a cluster using the following configuration.
-kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 containerdConfigPatches: # Enable NRI plugins - |- [plugins."io.containerd.nri.v1.nri"] disable = false nodes: - role: control-plane image: kindest/node:v1.32.0 - role: worker image: kindest/node:v1.'><link rel=preload href=/dranet/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css as=style integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin=anonymous><link href=/dranet/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css rel=stylesheet integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.7.1.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin=anonymous></script></head><body class=td-page><header><nav class="td-navbar js-navbar-scroll" data-bs-theme=dark><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/dranet/><span class="navbar-brand__logo navbar-logo"></span><span class=navbar-brand__name>dranet</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/dranet/docs><span>Home</span></a></li><li class=nav-item><a class=nav-link href=/dranet/docs/user><span>User Guides</span></a></li><li class=nav-item><a class=nav-link href=/dranet/docs/concepts><span>Concepts</span></a></li><li class=nav-item><a class=nav-link href=/dranet/docs/contributing><span>Contributing</span></a></li></ul></div><div class="d-none d-lg-block"><div class=td-search><div class=td-search__icon></div><input type=search class="td-search__input form-control td-search-input" placeholder="Search this site…" aria-label="Search this site…" autocomplete=off></div></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><div class=td-search><div class=td-search__icon></div><input type=search class="td-search__input form-control td-search-input" placeholder="Search this site…" aria-label="Search this site…" autocomplete=off></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type=button data-bs-toggle=collapse data-bs-target=#td-section-nav aria-controls=td-section-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="td-sidebar-nav collapse" id=td-section-nav><ul class="td-sidebar-nav__section pe-md-3 ul-0"><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-dranetdocs-li><a href=/dranet/docs/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-dranetdocs><span>dranet</span></a><ul class=ul-1><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-dranetdocsquick-start-li><a href=/dranet/docs/quick-start/ class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id=m-dranetdocsquick-start><span class=td-sidebar-nav-active-item>Quick Start</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-dranetdocsuser-li><a href=/dranet/docs/user/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id=m-dranetdocsuser><span>User Guides</span></a><ul class="ul-2 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsuserinterface-configuration-li><a href=/dranet/docs/user/interface-configuration/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsuserinterface-configuration><span>Interface Configuration</span></a></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-dranetdocsconcepts-li><a href=/dranet/docs/concepts/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id=m-dranetdocsconcepts><span>Concepts</span></a><ul class="ul-2 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptsinterface-status-li><a href=/dranet/docs/concepts/interface-status/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptsinterface-status><span>Interface Status</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptsrdma-li><a href=/dranet/docs/concepts/rdma/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptsrdma><span>RDMA</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptsrdma-modes-li><a href=/dranet/docs/concepts/rdma-modes/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptsrdma-modes><span>RDMA Device Handling</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptshowitworks-li><a href=/dranet/docs/concepts/howitworks/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptshowitworks><span>How It Works</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptsreferences-li><a href=/dranet/docs/concepts/references/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptsreferences><span>References</span></a></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-dranetdocscontributing-li><a href=/dranet/docs/contributing/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id=m-dranetdocscontributing><span>Contributing</span></a><ul class="ul-2 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocscontributingdeveloper-guide-li><a href=/dranet/docs/contributing/developer-guide/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocscontributingdeveloper-guide><span>Developer Guide</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocscontributingcontributing-li><a href=/dranet/docs/contributing/contributing/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocscontributingcontributing><span>Contributing</span></a></li></ul></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none"><div class="td-page-meta ms-2 pb-1 pt-2 mb-0"><a href=https://github.com/google/dranet/tree/main/site/content/docs/quick-start.md class="td-page-meta--view td-page-meta__view" target=_blank rel=noopener><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+kind: Cluster apiVersion: kind.x-k8s.io/v1alpha4 nodes: - role: control-plane image: kindest/node:v1.33.1 - role: worker image: kindest/node:v1.33.1 - role: worker image: kindest/node:v1.33.1 featureGates: # Enable the corresponding DRA feature gates DynamicResourceAllocation: true DRAResourceClaimDeviceStatus: true runtimeConfig: api/beta : true kind create cluster --config kind."><link rel=preload href=/dranet/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css as=style integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin=anonymous><link href=/dranet/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css rel=stylesheet integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.7.1.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin=anonymous></script></head><body class=td-page><header><nav class="td-navbar js-navbar-scroll" data-bs-theme=dark><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/dranet/><span class="navbar-brand__logo navbar-logo"></span><span class=navbar-brand__name>dranet</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/dranet/docs><span>Home</span></a></li><li class=nav-item><a class=nav-link href=/dranet/docs/user><span>User Guides</span></a></li><li class=nav-item><a class=nav-link href=/dranet/docs/concepts><span>Concepts</span></a></li><li class=nav-item><a class=nav-link href=/dranet/docs/contributing><span>Contributing</span></a></li></ul></div><div class="d-none d-lg-block"><div class=td-search><div class=td-search__icon></div><input type=search class="td-search__input form-control td-search-input" placeholder="Search this site…" aria-label="Search this site…" autocomplete=off></div></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><div class=td-search><div class=td-search__icon></div><input type=search class="td-search__input form-control td-search-input" placeholder="Search this site…" aria-label="Search this site…" autocomplete=off></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type=button data-bs-toggle=collapse data-bs-target=#td-section-nav aria-controls=td-section-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="td-sidebar-nav collapse" id=td-section-nav><ul class="td-sidebar-nav__section pe-md-3 ul-0"><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-dranetdocs-li><a href=/dranet/docs/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-dranetdocs><span>dranet</span></a><ul class=ul-1><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-dranetdocsquick-start-li><a href=/dranet/docs/quick-start/ class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id=m-dranetdocsquick-start><span class=td-sidebar-nav-active-item>Quick Start</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-dranetdocsuser-li><a href=/dranet/docs/user/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id=m-dranetdocsuser><span>User Guides</span></a><ul class="ul-2 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsusermpi-operator-li><a href=/dranet/docs/user/mpi-operator/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsusermpi-operator><span>MPI Operator on GKE</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsuserinterface-configuration-li><a href=/dranet/docs/user/interface-configuration/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsuserinterface-configuration><span>Interface Configuration</span></a></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-dranetdocsconcepts-li><a href=/dranet/docs/concepts/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id=m-dranetdocsconcepts><span>Concepts</span></a><ul class="ul-2 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptsinterface-status-li><a href=/dranet/docs/concepts/interface-status/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptsinterface-status><span>Interface Status</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptsrdma-li><a href=/dranet/docs/concepts/rdma/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptsrdma><span>RDMA</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptsrdma-modes-li><a href=/dranet/docs/concepts/rdma-modes/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptsrdma-modes><span>RDMA Device Handling</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptshowitworks-li><a href=/dranet/docs/concepts/howitworks/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptshowitworks><span>How It Works</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocsconceptsreferences-li><a href=/dranet/docs/concepts/references/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocsconceptsreferences><span>References</span></a></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-dranetdocscontributing-li><a href=/dranet/docs/contributing/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id=m-dranetdocscontributing><span>Contributing</span></a><ul class="ul-2 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocscontributingdeveloper-guide-li><a href=/dranet/docs/contributing/developer-guide/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocscontributingdeveloper-guide><span>Developer Guide</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-dranetdocscontributingcontributing-li><a href=/dranet/docs/contributing/contributing/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-dranetdocscontributingcontributing><span>Contributing</span></a></li></ul></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none"><div class="td-page-meta ms-2 pb-1 pt-2 mb-0"><a href=https://github.com/google/dranet/tree/main/site/content/docs/quick-start.md class="td-page-meta--view td-page-meta__view" target=_blank rel=noopener><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
 <a href=https://github.com/google/dranet/edit/main/site/content/docs/quick-start.md class="td-page-meta--edit td-page-meta__edit" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
 <a href="https://github.com/google/dranet/new/main/site/content/docs?filename=change-me.md&amp;value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child td-page-meta__child" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
-<a href="https://github.com/google/dranet/issues/new?title=Quick%20Start" class="td-page-meta--issue td-page-meta__issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a></div><div class=td-toc><nav id=TableOfContents><ul><li><a href=#kubernetes-cluster-with-dra>Kubernetes cluster with DRA</a><ul><li><a href=#kind>KIND</a></li><li><a href=#google-cloud>Google Cloud</a></li><li><a href=#installation>Installation</a></li><li><a href=#how-to-use-it>How to use it</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><nav aria-label=breadcrumb class=td-breadcrumbs><ol class=breadcrumb><li class=breadcrumb-item><a href=/dranet/docs/>dranet</a></li><li class="breadcrumb-item active" aria-current=page>Quick Start</li></ol></nav><div class=td-content><h1>Quick Start</h1><header class=article-meta></header><p>DRANET depends on the Kubernetes feature <a href=https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/>Dynamic Resource Allocation (DRA)</a>, that is beta (disabled by default in v1.32).</p><p>In order to enable DRA you need to enable both the <a href=https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/#enabling-dynamic-resource-allocation>feature gates and the API groups</a>.</p><h2 id=kubernetes-cluster-with-dra>Kubernetes cluster with DRA</h2><h3 id=kind>KIND</h3><p>Install <a href="https://github.com/kubernetes-sigs/kind?tab=readme-ov-file#installation-and-usage">KIND</a>.</p><p>Create a cluster using the following configuration.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>kind: Cluster
+<a href="https://github.com/google/dranet/issues/new?title=Quick%20Start" class="td-page-meta--issue td-page-meta__issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a></div><div class=td-toc><nav id=TableOfContents><ul><li><a href=#kubernetes-cluster-with-dra>Kubernetes cluster with DRA</a><ul><li><a href=#kind>KIND</a></li><li><a href=#google-cloud>Google Cloud</a></li></ul></li><li><a href=#installation>Installation</a><ul><li><a href=#how-to-use-it>How to use it</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><nav aria-label=breadcrumb class=td-breadcrumbs><ol class=breadcrumb><li class=breadcrumb-item><a href=/dranet/docs/>dranet</a></li><li class="breadcrumb-item active" aria-current=page>Quick Start</li></ol></nav><div class=td-content><h1>Quick Start</h1><header class=article-meta></header><p><code>DraNet</code> depends on the Kubernetes feature <a href=https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/>Dynamic Resource Allocation (DRA)</a>, that is beta (disabled by default in Kubernetes ∂v1.32).</p><p>In order to enable DRA you need to enable both the <a href=https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/#enabling-dynamic-resource-allocation>feature gates and the API groups</a>.</p><h2 id=kubernetes-cluster-with-dra>Kubernetes cluster with DRA</h2><h3 id=kind>KIND</h3><p>Install <a href="https://github.com/kubernetes-sigs/kind?tab=readme-ov-file#installation-and-usage">KIND</a>.</p><p>Create a cluster using the following configuration.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>kind: Cluster
 </span></span><span style=display:flex><span>apiVersion: kind.x-k8s.io/v1alpha4
-</span></span><span style=display:flex><span>containerdConfigPatches:
-</span></span><span style=display:flex><span>  <span style=color:green># Enable NRI plugins</span>
-</span></span><span style=display:flex><span>- |-<span style=color:#a31515>
-</span></span></span><span style=display:flex><span><span style=color:#a31515>  [plugins.&#34;io.containerd.nri.v1.nri&#34;]
-</span></span></span><span style=display:flex><span><span style=color:#a31515>    disable = false</span>  
 </span></span><span style=display:flex><span>nodes:
 </span></span><span style=display:flex><span>- role: control-plane
-</span></span><span style=display:flex><span>  image: kindest/node:v1.32.0
+</span></span><span style=display:flex><span>  image: kindest/node:v1.33.1
 </span></span><span style=display:flex><span>- role: worker
-</span></span><span style=display:flex><span>  image: kindest/node:v1.32.0
+</span></span><span style=display:flex><span>  image: kindest/node:v1.33.1
 </span></span><span style=display:flex><span>- role: worker
-</span></span><span style=display:flex><span>  image: kindest/node:v1.32.0
+</span></span><span style=display:flex><span>  image: kindest/node:v1.33.1
 </span></span><span style=display:flex><span>featureGates:
 </span></span><span style=display:flex><span>  <span style=color:green># Enable the corresponding DRA feature gates</span>
 </span></span><span style=display:flex><span>  DynamicResourceAllocation: <span style=color:#00f>true</span>
+</span></span><span style=display:flex><span>  DRAResourceClaimDeviceStatus: <span style=color:#00f>true</span>
 </span></span><span style=display:flex><span>runtimeConfig:
 </span></span><span style=display:flex><span>  api/beta : <span style=color:#00f>true</span>
 </span></span></code></pre></div><pre tabindex=0><code>kind create cluster --config kind.yaml --name dra
-</code></pre><h3 id=google-cloud>Google Cloud</h3><p>You can <a href=https://cloud.google.com/kubernetes-engine/docs/how-to/use-beta-apis>enable the DRA beta APIs in GKE</a> and it automatically turns on the feature gates.</p><p>You need to check that a v1.32 version exist in your zone:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>$ gcloud container get-server-config  | grep 1.32
-</span></span><span style=display:flex><span>Fetching server config <span style=color:#00f>for</span> us-central1-c
-</span></span><span style=display:flex><span>  - 1.32.0-gke.1358000
-</span></span><span style=display:flex><span>  minorVersion: <span style=color:#a31515>&#39;1.32&#39;</span>
-</span></span><span style=display:flex><span>- 1.32.0-gke.1358000
-</span></span><span style=display:flex><span>- 1.32.0-gke.1358000
-</span></span></code></pre></div><p>And using the version obtained you can create a cluster</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>export PROJECT=dra-proj
-</span></span><span style=display:flex><span>export REGION=us-central1
-</span></span><span style=display:flex><span>export ZONE=us-central1-c
-</span></span><span style=display:flex><span>export CLUSTER=dra-cluster
-</span></span><span style=display:flex><span>export VERSION=1.32.0-gke.1358000
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>gcloud beta container clusters create <span style=color:#a31515>${</span>CLUSTER<span style=color:#a31515>}</span> <span style=color:#a31515>\
-</span></span></span><span style=display:flex><span><span style=color:#a31515></span>    --cluster-version=<span style=color:#a31515>${</span>VERSION<span style=color:#a31515>}</span> <span style=color:#a31515>\
-</span></span></span><span style=display:flex><span><span style=color:#a31515></span>    --enable-multi-networking <span style=color:#a31515>\
-</span></span></span><span style=display:flex><span><span style=color:#a31515></span>    --enable-dataplane-v2 <span style=color:#a31515>\
-</span></span></span><span style=display:flex><span><span style=color:#a31515></span>    --enable-kubernetes-unstable-apis=resource.k8s.io/v1beta1/deviceclasses,resource.k8s.io/v1beta1/resourceclaims,resource.k8s.io/v1beta1/resourceclaimtemplates,resource.k8s.io/v1beta1/resourceslices <span style=color:#a31515>\
-</span></span></span><span style=display:flex><span><span style=color:#a31515></span>    --no-enable-autorepair <span style=color:#a31515>\
-</span></span></span><span style=display:flex><span><span style=color:#a31515></span>    --no-enable-autoupgrade <span style=color:#a31515>\
-</span></span></span><span style=display:flex><span><span style=color:#a31515></span>    --zone=<span style=color:#a31515>${</span>ZONE<span style=color:#a31515>}</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>To inspect the contents of your cluster, go to: https://console.cloud.google.com/kubernetes/workload_/gcloud/us-central1-c/aojea-dra?project=aojea-gke-dev
-</span></span><span style=display:flex><span>kubeconfig entry generated <span style=color:#00f>for</span> aojea-dra.
-</span></span><span style=display:flex><span>NAME       LOCATION       MASTER_VERSION      MASTER_IP     MACHINE_TYPE  NODE_VERSION        NUM_NODES  STATUS
-</span></span><span style=display:flex><span>aojea-dra  us-central1-c  1.32.0-gke.1358000  X.X.X.X  e2-medium     1.32.0-gke.1358000  3          RUNNING
-</span></span></code></pre></div><p>A quick and easy way to find if DRA is enabled is by checking the metrics in the kube-apiserver</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>kubectl get --raw /metrics | grep kubernetes_feature_enabled | grep DynamicResourceAllocation
+</code></pre><h3 id=google-cloud>Google Cloud</h3><p>For instructions on setting up DRA on GKE, refer to the official documentation:
+<a href=https://cloud.google.com/kubernetes-engine/docs/how-to/set-up-dra>Set up Dynamic Resource Allocation</a></p><p>A quick and easy way to find if DRA is enabled is by checking the metrics in the kube-apiserver</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>kubectl get --raw /metrics | grep kubernetes_feature_enabled | grep DynamicResourceAllocation
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>kubernetes_feature_enabled{name=<span style=color:#a31515>&#34;DynamicResourceAllocation&#34;</span>,stage=<span style=color:#a31515>&#34;BETA&#34;</span>} 1
-</span></span></code></pre></div><h3 id=installation>Installation</h3><p>You can install the latest stable version using the provided manifest:</p><pre tabindex=0><code>kubectl apply -f https://raw.githubusercontent.com/google/dranet/refs/heads/main/install.yaml
-</code></pre><h3 id=how-to-use-it>How to use it</h3><p>Once the Kubernetes Network Driver is running you can see the list of Network Interfaces and its attributes published by the drivers:</p><pre tabindex=0><code>apiVersion: resource.k8s.io/v1beta1
+</span></span></code></pre></div><h2 id=installation>Installation</h2><p>You can install the latest stable version of <code>DraNet</code> using the provided manifest:</p><pre tabindex=0><code>kubectl apply -f https://raw.githubusercontent.com/google/dranet/refs/heads/main/install.yaml
+</code></pre><h3 id=how-to-use-it>How to use it</h3><p>Once the Kubernetes Network Driver is running you can see the list of Network Interfaces and its attributes published by the drivers using <code>kubectl get resourceslices -o yaml</code>:</p><pre tabindex=0><code>apiVersion: resource.k8s.io/v1beta1
 kind: ResourceSlice
 metadata:
   creationTimestamp: &#34;2024-12-15T23:41:51Z&#34;
@@ -84,131 +56,47 @@ metadata:
   uid: 535724d7-a573-49e1-8f3b-4e644405375a
 spec:
   devices:
-  - basic:
-      attributes:
-        alias:
-          string: &#34;&#34;
-        cloud_network:
-          string: projects/961828715260/networks/aojea-dra-net-1
-        encapsulation:
-          string: ether
-        ip:
-          string: 192.168.1.2
-        kind:
-          string: network
-        mac:
-          string: 42:01:c0:a8:01:02
-        mtu:
-          int: 8244
-        name:
-          string: eth1
-        numa_node:
-          int: -1
-        pci_address_bus:
-          string: &#34;00&#34;
-        pci_address_device:
-          string: &#34;05&#34;
-        pci_address_domain:
-          string: &#34;0000&#34;
-        pci_address_function:
-          string: &#34;0&#34;
-        pci_vendor:
-          string: Google, Inc.
-        rdma:
-          bool: false
-        sriov:
-          bool: false
-        state:
-          string: up
-        type:
-          string: device
-        virtual:
-          bool: false
-    name: eth1
-  - basic:
-      attributes:
-        alias:
-          string: &#34;&#34;
-        cloud_network:
-          string: projects/961828715260/networks/aojea-dra-net-2
-        encapsulation:
-          string: ether
-        ip:
-          string: 192.168.2.2
-        kind:
-          string: network
-        mac:
-          string: 42:01:c0:a8:02:02
-        mtu:
-          int: 8244
-        name:
-          string: eth2
-        numa_node:
-          int: -1
-        pci_address_bus:
-          string: &#34;00&#34;
-        pci_address_device:
-          string: &#34;06&#34;
-        pci_address_domain:
-          string: &#34;0000&#34;
-        pci_address_function:
-          string: &#34;0&#34;
-        pci_vendor:
-          string: Google, Inc.
-        rdma:
-          bool: false
-        sriov:
-          bool: false
-        state:
-          string: up
-        type:
-          string: device
-        virtual:
-          bool: false
-    name: eth2
-  - basic:
-      attributes:
-        alias:
-          string: &#34;&#34;
-        cloud_network:
-          string: projects/961828715260/networks/aojea-dra-net-3
-        encapsulation:
-          string: ether
-        ip:
-          string: 192.168.3.2
-        kind:
-          string: network
-        mac:
-          string: 42:01:c0:a8:03:02
-        mtu:
-          int: 8244
-        name:
-          string: eth3
-        numa_node:
-          int: -1
-        pci_address_bus:
-          string: &#34;00&#34;
-        pci_address_device:
-          string: &#34;07&#34;
-        pci_address_domain:
-          string: &#34;0000&#34;
-        pci_address_function:
-          string: &#34;0&#34;
-        pci_vendor:
-          string: Google, Inc.
-        rdma:
-          bool: false
-        sriov:
-          bool: false
-        state:
-          string: up
-        type:
-          string: device
-        virtual:
-          bool: false
-    name: eth3
+    - basic:
+        attributes:
+          dra.net/alias:
+            string: &#34;&#34;
+          dra.net/cloudNetwork:
+            string: dra-1-vpc
+          dra.net/encapsulation:
+            string: ether
+          dra.net/ifName:
+            string: gpu7rdma0
+          dra.net/ipv4:
+            string: 10.0.8.8
+          dra.net/mac:
+            string: 9a:41:2e:4f:86:16
+          dra.net/mtu:
+            int: 8896
+          dra.net/numaNode:
+            int: 1
+          dra.net/pciAddressBus:
+            string: c8
+          dra.net/pciAddressDevice:
+            string: &#34;00&#34;
+          dra.net/pciAddressDomain:
+            string: &#34;0000&#34;
+          dra.net/pciAddressFunction:
+            string: &#34;0&#34;
+          dra.net/pciVendor:
+            string: Mellanox Technologies
+          dra.net/rdma:
+            bool: true
+          dra.net/sriov:
+            bool: false
+          dra.net/state:
+            string: up
+          dra.net/type:
+            string: device
+          dra.net/virtual:
+            bool: false
+      name: gpu7rdma0
 ...
-</code></pre><p>Once the resources are available, users can create DeviceClasses, ResourceClaims and/or ResourceClaimTemplates to schedule pods, see some <a href=https://github.com/google/dranet/tree/main/examples>examples</a>.</p><p>Define a <code>DeviceClass</code> that selects all the network interfaces that are connected to a <code>GCP Network</code></p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>apiVersion: resource.k8s.io/v1beta1
+</code></pre><p>Once the resources are available, users can create <code>DeviceClasses</code>, <code>ResourceClaims</code> and/or <code>ResourceClaimTemplates</code> to schedule pods.</p><p>Define a <code>DeviceClass</code> that selects all the network interfaces that are connected to a <code>GCP Network</code></p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>apiVersion: resource.k8s.io/v1beta1
 </span></span><span style=display:flex><span>kind: DeviceClass
 </span></span><span style=display:flex><span>metadata:
 </span></span><span style=display:flex><span>  name: dranet-cloud
@@ -217,42 +105,37 @@ spec:
 </span></span><span style=display:flex><span>    - cel:
 </span></span><span style=display:flex><span>        expression: device.driver == &#34;dra.net&#34;
 </span></span><span style=display:flex><span>    - cel:
-</span></span><span style=display:flex><span>        expression: has(device.attributes[&#34;dra.net&#34;].cloud_network) 
-</span></span><span style=display:flex><span>  config:
-</span></span><span style=display:flex><span>  - opaque:
-</span></span><span style=display:flex><span>      driver: dra.net
-</span></span><span style=display:flex><span>      parameters:
-</span></span><span style=display:flex><span>        nccl: <span style=color:#a31515>&#34;true&#34;</span>
-</span></span></code></pre></div><p>Now you can create a <code>ResourceClaim</code> that connects to a specific network, in this case <code>projects/961828715260/networks/aojea-dra-net-3</code> and reference that claim in a <code>Pod</code>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>apiVersion: resource.k8s.io/v1beta1
+</span></span><span style=display:flex><span>        expression: has(device.attributes[&#34;dra.net&#34;].cloudNetwork) 
+</span></span></code></pre></div><p>Now you can create a <code>ResourceClaim</code> that connects to a specific network, in this case <code>dra-1-vpc</code> and reference that claim in a <code>Pod</code>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>apiVersion: resource.k8s.io/v1beta1
 </span></span><span style=display:flex><span>kind:  ResourceClaim
 </span></span><span style=display:flex><span>metadata:
-</span></span><span style=display:flex><span>  name: cloud-network-dra-net-3
+</span></span><span style=display:flex><span>  name: cloud-network-dra-net-1
 </span></span><span style=display:flex><span>spec:
 </span></span><span style=display:flex><span>  devices:
 </span></span><span style=display:flex><span>    requests:
-</span></span><span style=display:flex><span>    - name: req-cloud-net-3
+</span></span><span style=display:flex><span>    - name: req-cloud-net-1
 </span></span><span style=display:flex><span>      deviceClassName: dranet-cloud
 </span></span><span style=display:flex><span>      selectors:
 </span></span><span style=display:flex><span>        - cel:
-</span></span><span style=display:flex><span>            expression: device.attributes[&#34;dra.net&#34;].cloud_network == &#34;projects/961828715260/networks/aojea-dra-net-3&#34;
+</span></span><span style=display:flex><span>            expression: device.attributes[&#34;dra.net&#34;].cloudNetwork == &#34;dra-1-vpc&#34;
 </span></span><span style=display:flex><span>---
 </span></span><span style=display:flex><span>apiVersion: v1
 </span></span><span style=display:flex><span>kind: Pod
 </span></span><span style=display:flex><span>metadata:
-</span></span><span style=display:flex><span>  name: pod-dra-net3
+</span></span><span style=display:flex><span>  name: pod-dra-net1
 </span></span><span style=display:flex><span>  labels:
-</span></span><span style=display:flex><span>    app: pod-dra-net3
+</span></span><span style=display:flex><span>    app: pod-dra-net1
 </span></span><span style=display:flex><span>spec:
 </span></span><span style=display:flex><span>  containers:
 </span></span><span style=display:flex><span>  - name: ctr1
 </span></span><span style=display:flex><span>    image: registry.k8s.io/e2e-test-images/agnhost:2.39
 </span></span><span style=display:flex><span>  resourceClaims:
-</span></span><span style=display:flex><span>  - name: net-3
-</span></span><span style=display:flex><span>    resourceClaimName: cloud-network-dra-net-3
+</span></span><span style=display:flex><span>  - name: net-1
+</span></span><span style=display:flex><span>    resourceClaimName: cloud-network-dra-net-1
 </span></span></code></pre></div><p>Kubernetes schedules the <code>Pod</code> to the corresponding <code>Node</code> and attach the network interface to the <code>Pod</code>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>kubectl get pods -o wide
 </span></span><span style=display:flex><span>NAME           READY   STATUS    RESTARTS   AGE   IP            NODE                                    NOMINATED NODE   READINESS GATES
-</span></span><span style=display:flex><span>pod-dra-net3   1/1     Running   0          5s    10.52.3.108   gke-dra-multi-nic-985b8c20-jg5l   &lt;none&gt;           &lt;none&gt;
-</span></span></code></pre></div><p>If we execute inside the <code>Pod</code> we can see the network interface now is attached:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>kubectl exec -it pod-dra-net3 ip a
+</span></span><span style=display:flex><span>pod-dra-net1  1/1     Running   0          5s    10.52.3.108   gke-dra-multi-nic-985b8c20-jg5l   &lt;none&gt;           &lt;none&gt;
+</span></span></code></pre></div><p>If we execute inside the <code>Pod</code> we can see the network interface now is attached:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>kubectl exec -it pod-dra-net1 ip a
 </span></span><span style=display:flex><span>kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
 </span></span><span style=display:flex><span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 </span></span><span style=display:flex><span>    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -262,7 +145,7 @@ spec:
 </span></span><span style=display:flex><span>    link/ether 86:dc:58:24:55:1a brd ff:ff:ff:ff:ff:ff link-netnsid 0
 </span></span><span style=display:flex><span>    inet 10.52.3.108/24 brd 10.52.3.255 scope global eth0
 </span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
-</span></span><span style=display:flex><span>5: eth3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 8244 qdisc fq state UP group default qlen 1000
+</span></span><span style=display:flex><span>5: gpu7rdma0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 8244 qdisc fq state UP group default qlen 1000
 </span></span><span style=display:flex><span>    link/ether 42:01:c0:a8:03:02 brd ff:ff:ff:ff:ff:ff
 </span></span></code></pre></div><p>Deleting the Pod restores the interface and makes it available again.</p></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title="SIG Network mailing list" aria-label="SIG Network mailing list"><a target=_blank rel=noopener href=https://groups.google.com/forum/#!forum/kubernetes-sig-network aria-label="SIG Network mailing list"><i class="fa fa-envelope"></i></a></li></ul></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/google/dranet aria-label=GitHub><i class="fab fa-github"></i></a></li><li class=td-footer__links-item data-bs-toggle=tooltip title=Slack aria-label=Slack><a target=_blank rel=noopener href=https://kubernetes.slack.com/messages/sig-network aria-label=Slack><i class="fab fa-slack"></i></a></li></ul></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2024&ndash;2025
