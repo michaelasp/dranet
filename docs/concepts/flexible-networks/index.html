@@ -19,7 +19,7 @@ If that app needs a real, physical network card for high performance, DraNet mov
 machine into the container’s network namespace.</p><p>Here’s the twist: when the application finishes and the container goes away, the network card is moved back to the host.
 But what if another card or virtual interface with the same name already exists? To prevent a conflict,
 Linux will automatically rename the card it just got back, maybe to something generic like <code>dev7</code>, for more technical
-details see <a href=./linux-network-interfaces.md>Linux Network Namespaces and Interfaces</a></p><h2 id=a-network-is-more-than-just-a-card>A Network Is More Than Just a Card</h2><p>This brings us to an even bigger idea: a &ldquo;network&rdquo; is much more than just the physical card you can hold in your hand.
+details see <a href=/docs/concepts/linux-network-interfaces/>Linux Network Namespaces and Interfaces</a></p><h2 id=a-network-is-more-than-just-a-card>A Network Is More Than Just a Card</h2><p>This brings us to an even bigger idea: a &ldquo;network&rdquo; is much more than just the physical card you can hold in your hand.
 It&rsquo;s an abstract concept. The real value isn’t in the card itself, but in its configuration and, most importantly, what it&rsquo;s connected to.</p><p>By breaking the hardcoded link between a physical card and a single, static destination, we open up a world of new possibilities.
 Imagine your application could tell the wider network what it needs on the fly. It could send a signal to a router and say,
 &ldquo;For this next task, I need an ultra-secure, high-speed private circuit to a database in another country.&rdquo;
