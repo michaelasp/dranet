@@ -17,6 +17,7 @@ package apis
 
 import (
 	"encoding/json"
+	"math"
 	"reflect"
 	"strings"
 	"testing"
@@ -927,6 +928,19 @@ func TestValidateRoutes(t *testing.T) {
 			errCount:  1,
 		},
 		{
+			name:      "valid route with max table ID",
+			routes:    []RouteConfig{{Destination: "10.10.10.0/24", Gateway: "192.168.1.1", Table: math.MaxUint32}},
+			fieldPath: "routes",
+			expectErr: false,
+		},
+		{
+			name:      "invalid route - table ID overflows uint32",
+			routes:    []RouteConfig{{Destination: "10.10.10.0/24", Gateway: "192.168.1.1", Table: math.MaxUint32 + 1}},
+			fieldPath: "routes",
+			expectErr: true,
+			errCount:  1,
+		},
+		{
 			name:      "gateway family mismatch (IPv6 destination, IPv4 gateway)",
 			routes:    []RouteConfig{{Destination: "2001:db8::/64", Gateway: "192.168.1.1", Scope: scopeUniverse}},
 			fieldPath: "routes",
@@ -1030,6 +1044,19 @@ func TestValidateRules(t *testing.T) {
 			errCount:  1,
 		},
 		{
+			name:      "valid rule - max table ID",
+			rules:     []RuleConfig{{Priority: 10, Table: math.MaxUint32}},
+			fieldPath: "rules",
+			expectErr: false,
+		},
+		{
+			name:      "invalid rule - table ID overflows uint32",
+			rules:     []RuleConfig{{Priority: 10, Table: math.MaxUint32 + 1}},
+			fieldPath: "rules",
+			expectErr: true,
+			errCount:  1,
+		},
+		{
 			name:      "multiple errors",
 			rules:     []RuleConfig{{Priority: -1, Table: -1, Source: "invalid", Destination: "invalid"}},
 			fieldPath: "rules",
@@ -1046,6 +1073,79 @@ func TestValidateRules(t *testing.T) {
 			}
 			if tt.expectErr && len(errs) != tt.errCount {
 				t.Errorf("validateRules() expected %d errors, got %d: %v", tt.errCount, len(errs), errs)
+			}
+		})
+	}
+}
+
+func TestValidateVRFConfig(t *testing.T) {
+	tests := []struct {
+		name        string
+		cfg         *VRFConfig
+		expectErr   bool
+		errContains []string
+	}{
+		{
+			name:      "valid name and table",
+			cfg:       &VRFConfig{Name: "vrf-blue", Table: ptr.To(100)},
+			expectErr: false,
+		},
+		{
+			name:      "valid max table ID",
+			cfg:       &VRFConfig{Name: "vrf-blue", Table: ptr.To(math.MaxUint32)},
+			expectErr: false,
+		},
+		{
+			name:        "name too long",
+			cfg:         &VRFConfig{Name: "vrf-name-too-long", Table: ptr.To(100)},
+			expectErr:   true,
+			errContains: []string{"vrf.name: name 'vrf-name-too-long' exceeds maximum length of 15 characters"},
+		},
+		{
+			name:        "name with slash",
+			cfg:         &VRFConfig{Name: "vrf/blue", Table: ptr.To(100)},
+			expectErr:   true,
+			errContains: []string{"vrf.name: name 'vrf/blue' cannot contain '/'"},
+		},
+		{
+			name:        "reserved table",
+			cfg:         &VRFConfig{Name: "vrf-blue", Table: ptr.To(254)},
+			expectErr:   true,
+			errContains: []string{"vrf.table: cannot use reserved table ID 254"},
+		},
+		{
+			name:        "table ID overflows uint32",
+			cfg:         &VRFConfig{Name: "vrf-blue", Table: ptr.To(math.MaxUint32 + 1)},
+			expectErr:   true,
+			errContains: []string{"vrf.table: must not exceed 4294967295"},
+		},
+		{
+			// 2^32+254 would wrap to 254 (the main table) when converted to uint32,
+			// bypassing the reserved table check.
+			name:        "table ID that would wrap to the main table",
+			cfg:         &VRFConfig{Name: "vrf-blue", Table: ptr.To(math.MaxUint32 + 254)},
+			expectErr:   true,
+			errContains: []string{"vrf.table: must not exceed 4294967295"},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			errs := validateVRFConfig(tt.cfg, "interface.vrf")
+			if (len(errs) > 0) != tt.expectErr {
+				t.Fatalf("validateVRFConfig() expectErr %v, got errors: %v", tt.expectErr, errs)
+			}
+			for _, substr := range tt.errContains {
+				found := false
+				for _, err := range errs {
+					if strings.Contains(err.Error(), substr) {
+						found = true
+						break
+					}
+				}
+				if !found {
+					t.Errorf("validateVRFConfig() expected error to contain %q, got: %v", substr, errs)
+				}
 			}
 		})
 	}

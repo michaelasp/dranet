@@ -18,6 +18,7 @@ package apis
 
 import (
 	"fmt"
+	"math"
 	"net"
 	"net/netip"
 	"slices"
@@ -36,6 +37,10 @@ const (
 	MinIPv6MTU = 1280
 	// MaxInterfaceNameLen is typically IFNAMSIZ-1 (usually 15 on Linux).
 	MaxInterfaceNameLen = 15
+	// MaxTableID is the largest routing table ID. The kernel stores table IDs as
+	// u32, so a larger value would be silently truncated when the driver converts
+	// it to uint32 (e.g. 2^32+254 would become 254, the main table).
+	MaxTableID uint32 = math.MaxUint32
 )
 
 // ValidateConfig unmarshals and validates the NetworkConfig from a runtime.RawExtension.
@@ -257,11 +262,17 @@ func validateInterfaceConfig(cfg *InterfaceConfig, fieldPath string) (allErrors 
 func validateVRFConfig(cfg *VRFConfig, fieldPath string) (allErrors []error) {
 	if cfg.Name == "" {
 		allErrors = append(allErrors, fmt.Errorf("%s.name: cannot be empty", fieldPath))
+	} else {
+		// The VRF is created as a link device, so its name must be a valid interface name.
+		allErrors = append(allErrors, isValidLinuxInterfaceName(cfg.Name, fieldPath+".name")...)
 	}
 
 	if cfg.Table != nil {
 		if *cfg.Table <= 0 {
 			allErrors = append(allErrors, fmt.Errorf("%s.table: must be a positive integer, got %d", fieldPath, *cfg.Table))
+		}
+		if int64(*cfg.Table) > int64(MaxTableID) {
+			allErrors = append(allErrors, fmt.Errorf("%s.table: must not exceed %d, got %d", fieldPath, MaxTableID, *cfg.Table))
 		}
 		// Avoid reserved Linux routing tables
 		if *cfg.Table == 253 || *cfg.Table == 254 || *cfg.Table == 255 {
@@ -340,6 +351,9 @@ func validateRoutes(routes []RouteConfig, fieldPath string) (allErrors []error) 
 		if route.Table < 0 {
 			allErrors = append(allErrors, fmt.Errorf("%s.table: must be a non-negative integer, got %d", currentFieldPath, route.Table))
 		}
+		if int64(route.Table) > int64(MaxTableID) {
+			allErrors = append(allErrors, fmt.Errorf("%s.table: must not exceed %d, got %d", currentFieldPath, MaxTableID, route.Table))
+		}
 	}
 	return allErrors
 }
@@ -355,6 +369,9 @@ func validateRules(rules []RuleConfig, fieldPath string) (allErrors []error) {
 
 		if rule.Table < 0 {
 			allErrors = append(allErrors, fmt.Errorf("%s.table: must be a non-negative integer, got %d", currentFieldPath, rule.Table))
+		}
+		if int64(rule.Table) > int64(MaxTableID) {
+			allErrors = append(allErrors, fmt.Errorf("%s.table: must not exceed %d, got %d", currentFieldPath, MaxTableID, rule.Table))
 		}
 
 		var srcIP, dstIP net.IP
