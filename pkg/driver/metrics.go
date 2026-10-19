@@ -47,6 +47,9 @@ func registerMetrics() {
 		prometheus.MustRegister(nriPluginRequestsLatencySeconds)
 		prometheus.MustRegister(publishedDevicesTotal)
 		prometheus.MustRegister(lastPublishedTime)
+		prometheus.MustRegister(nriPluginDisconnectsTotal)
+		prometheus.MustRegister(nriPluginReconnectAttemptsTotal)
+		prometheus.MustRegister(netdbReconnectAttemptsTotal)
 	})
 }
 
@@ -86,5 +89,38 @@ var (
 		Subsystem: "driver",
 		Name:      "last_published_time_seconds",
 		Help:      "The timestamp of the last successful resource publication.",
+	})
+	// nriPluginDisconnectsTotal counts containerd closing an already-open
+	// ttrpc connection (stub.WithOnClose), e.g. on plugin_request_timeout. A
+	// strict subset of nriPluginReconnectAttemptsTotal below: it only fires
+	// once a connection exists, so it misses retries from a failed
+	// stub.connect() or stub.register() (socket not up yet, registration
+	// timeout). Also distinct from nri_plugin_requests_total{status="failed"}:
+	// a disconnect can happen after the handler already returned success.
+	nriPluginDisconnectsTotal = prometheus.NewCounter(prometheus.CounterOpts{
+		Namespace: "dranet",
+		Subsystem: "driver",
+		Name:      "nri_plugin_disconnects_total",
+		Help:      "Total number of times containerd closed its NRI plugin connection to dranet (e.g. on plugin_request_timeout).",
+	})
+	// nriPluginReconnectAttemptsTotal and netdbReconnectAttemptsTotal count
+	// every retry of each subsystem's loop in Start(), regardless of cause --
+	// a superset of nriPluginDisconnectsTotal above. Both loops cap at
+	// maxAttempts before klog.Fatalf, so either value approaching maxAttempts
+	// warns of an imminent exit before the container restart itself is
+	// visible (kube_pod_container_status_restarts_total). Counters, not
+	// Gauges: within a process's life they only increase, resetting on
+	// process restart like a Gauge would anyway.
+	nriPluginReconnectAttemptsTotal = prometheus.NewCounter(prometheus.CounterOpts{
+		Namespace: "dranet",
+		Subsystem: "driver",
+		Name:      "nri_plugin_reconnect_attempts_total",
+		Help:      "Total number of times the NRI plugin connection loop has been restarted. Resets on process restart; approaches maxAttempts before the process exits.",
+	})
+	netdbReconnectAttemptsTotal = prometheus.NewCounter(prometheus.CounterOpts{
+		Namespace: "dranet",
+		Subsystem: "driver",
+		Name:      "netdb_reconnect_attempts_total",
+		Help:      "Total number of times the host network device database's connection loop has been restarted. Resets on process restart; approaches maxAttempts before the process exits.",
 	})
 )
