@@ -17,8 +17,8 @@ limitations under the License.
 package filter
 
 import (
-	"github.com/google/cel-go/cel"
-	celtypes "github.com/google/cel-go/common/types"
+	"cel.dev/cel-go/cel"
+	celtypes "cel.dev/cel-go/common/types"
 
 	resourcev1 "k8s.io/api/resource/v1"
 	"k8s.io/klog/v2"
