@@ -3,6 +3,7 @@ module sigs.k8s.io/dranet
 go 1.26.0
 
 require (
+	cel.dev/cel-go v0.32.0
 	cloud.google.com/go/compute v1.72.0
 	cloud.google.com/go/compute/metadata v0.10.0
 	cloud.google.com/go/container v1.55.0
@@ -13,7 +14,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.20.3
 	github.com/cilium/ebpf v0.22.0
 	github.com/containerd/nri v0.12.3
-	github.com/google/cel-go v0.31.0
 	github.com/google/go-cmp v0.7.0
 	github.com/insomniacslk/dhcp v0.0.0-20260719225207-c76316d4aa82
 	github.com/jaypipes/ghw v0.26.0

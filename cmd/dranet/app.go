@@ -32,8 +32,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/google/cel-go/cel"
-	"github.com/google/cel-go/ext"
+	"cel.dev/cel-go/cel"
+	"cel.dev/cel-go/ext"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"golang.org/x/time/rate"
 	"sigs.k8s.io/dranet/pkg/cloudprovider"
